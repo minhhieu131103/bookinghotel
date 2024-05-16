@@ -31,18 +31,18 @@ public class HelloSpringBoot {
     }
     @GetMapping(path = "/byid/{id}")
     @ResponseBody
-    public User getByName(@PathVariable String name) {
+    public User getByName(@PathVariable Integer id) {
       // This returns a JSON or XML with the users
-      User u=userRepository.findByName(name)
+      User u=userRepository.findById(id)
                                 .orElse(new User());
       return (u);
     }
 
-    @PostMapping("/themuser")
-    @CrossOrigin
-  public void createUser(@RequestBody User u) {
-    userRepository.save(u);
-  }
+  //   @PostMapping("/themuser")
+  //   @CrossOrigin
+  // public void createUser(@RequestBody User u) {
+  //   userRepository.save(u);
+  // }
 
 }
 
