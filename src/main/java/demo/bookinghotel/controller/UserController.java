@@ -14,24 +14,20 @@ import demo.bookinghotel.repository.UserRepository;
 import demo.bookinghotel.models.User;
 
 @RestController
-public class HelloSpringBoot {
+public class UserController {
     @Autowired
     private UserRepository userRepository;
-    @GetMapping("/hello")
-    public String index() {
-        return "Greetings from Spring Boot!";
-    }
 
-    @GetMapping(path = "/all")
+    @GetMapping(path = "/userall")
     @CrossOrigin
     @ResponseBody
     public  List<User> getAllUsers() {
       // This returns a JSON or XML with the users
       return (List<User>) userRepository.findAll();
     }
-    @GetMapping(path = "/byid/{id}")
+    @GetMapping(path = "/userbyid/{id}")
     @ResponseBody
-    public User getByName(@PathVariable Integer id) {
+    public User getUserById(@PathVariable Integer id) {
       // This returns a JSON or XML with the users
       User u=userRepository.findById(id)
                                 .orElse(new User());
