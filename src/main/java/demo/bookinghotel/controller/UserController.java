@@ -40,5 +40,18 @@ public class UserController {
   //   userRepository.save(u);
   // }
 
+  //   @PostMapping("/xoauserbyid/{id}")
+  //   @CrossOrigin
+  // public void deleteUserById(@RequestBody User u) {
+  //   Long id = u.getId();               
+  //   userRepository.deleteById(id);
+  // }
+
+      @GetMapping(path = "/xoauserbyid/{id}")
+      @ResponseBody
+      public void deleteUserById(@PathVariable Long id) {
+        userRepository.deleteById(id);
+    }
+
 }
 
