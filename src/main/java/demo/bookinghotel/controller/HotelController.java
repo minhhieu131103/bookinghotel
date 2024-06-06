@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import demo.bookinghotel.exception.ResourceNotFoundException;
 import demo.bookinghotel.models.hotel;
 import demo.bookinghotel.repository.hotelRepository;
+
 
 @SuppressWarnings("unused")
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -58,6 +60,9 @@ public class HotelController {
         hotel.setAddress(hotelDetails.getAddress());
         hotel.setStar(hotelDetails.getStar());
         hotel.setPrice(hotelDetails.getPrice());
+        hotel.setImage(hotelDetails.getImage());
+        hotel.setImage2(hotelDetails.getImage2());
+        hotel.setDescription(hotelDetails.getDescription());
 
         final hotel updatedHotel = hotelRepository.save(hotel);
         return ResponseEntity.ok(updatedHotel);

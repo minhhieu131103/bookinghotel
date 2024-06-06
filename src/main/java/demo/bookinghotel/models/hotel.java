@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,15 +28,29 @@ public class hotel {
     @Column(name = "price")
     private String price;
 
+    @Lob
+    @Column(name = "image", columnDefinition = "LONGBLOB")
+    private byte[] image;
+
+    @Lob
+    @Column(name = "image2", columnDefinition = "LONGBLOB")
+    private byte[] image2;
+
+    @Column(name = "description")
+    private String description;  // New field for description
+
     public hotel() {
     }
 
-    public hotel(Long id, String name, String address, Integer star, String price) {
+    public hotel(Long id, String name, String address, Integer star, String price, byte[] image, byte[] image2, String description) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.star = star;
         this.price = price;
+        this.image = image;
+        this.image2 = image2;
+        this.description = description;  // Initialize the new field
     }
 
     // Getters and setters
@@ -78,5 +93,29 @@ public class hotel {
     public void setPrice(String price) {
         this.price = price;
     }
-}
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage2(byte[] image2) {
+        this.image2 = image2;
+    }
+
+    public byte[] getImage2() {
+        return image2;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+
+    public String getDescription() {
+        return description;  
+    }
+
+    public void setDescription(String description) {
+        this.description = description;  
+    }
+}
