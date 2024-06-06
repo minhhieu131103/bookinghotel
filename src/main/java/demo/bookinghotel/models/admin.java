@@ -24,14 +24,18 @@ public class admin {
     @Column(name = "phone")
     private String phone;
 
+    @Column(name = "password")
+    private String password;
+
     public admin() {
     }
 
-    public admin(Long id, String name, String email, String phone) {
+    public admin(Long id, String name, String email, String phone, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.password = password;
     }
 
     public Long getId() {
@@ -64,6 +68,14 @@ public class admin {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
 
